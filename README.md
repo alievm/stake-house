@@ -1,122 +1,139 @@
-**How to Setup & Run this Project**
+# Steak House Project Team-5
+
+A web application for managing steakhouse operations, including a customer-facing interface, admin panel, and statistical insights.
+
+---
+
+## Features
+
+### User Interface Pages
+1. **Main Page**:
+   - Welcome section with a menu of steaks.
+
+2. **Cart Page**:
+   - View selected steaks with details (image, price, and quantity).
+   - Region selection for delivery.
+   - Order date selection.
+   - Order summary:
+      - Order amount.
+      - Quantity.
+      - Tax by region.
+      - Discount.
+      - Total amount.
+
+3. **Info Page**:
+   - User details:
+      - First name, last name, email, street, city, state, zip code, country, phone.
+   - Displays cart totals (order amount, quantity, discount, region, tax, order date, total).
+   - Cash payment option.
+   - Submit button.
+
+4. **Track Order Page**:
+   - Track order status:
+      - Food processing.
+      - Out for delivery.
+      - Delivered.
+
+5. **Sign Up and Login Popups**:
+   - **Sign Up**: Username, email, password, and confirm password.
+   - **Login**: Username and password.
 
+6. **Admin Panel**:
+   - **Add Items**: Add new steaks to the menu.
+   - **List Items**: View and manage steaks in the menu.
+   - **Orders**: View user orders and update their statuses.
 
-- # **Install NodeJs ( Ignore If Already Installed)**
+### Statistics Page
+- **Weekly, Monthly, and Yearly Steaks Sold**:
+   - Visualized with diagrams.
+   - Downloadable as PDFs.
 
-1. Visit the official Node.js website i.e) <https://nodejs.org/en/download/>
+- **Steaks Sold by Region in a Month**:
+   - Visualized with diagrams.
 
-1. Download the Node.js installer
+---
 
-1. Run the installer.
+## Technologies Used
+- **Frontend**: React.js
+- **Backend**: Node.js with Express.js
+- **Database**: MongoDB Cloud
 
-1. Follow the prompts in the installer.
+---
 
+## Prerequisites
+- **Node.js**: [Download Node.js](https://nodejs.org/en/download/)
+- **MongoDB Cloud**: [Sign Up for MongoDB](https://www.mongodb.com/)
 
-**—Firsľ Run Backend ľhen Fronľend & Admin—**
+---
 
+## Setup Instructions
 
-- # **Steps To Setup Backend Of The Project**
+### Backend Setup
 
-1. Open Project Folder In VS Code
+#### Set Up MongoDB
+Follow these steps to configure MongoDB:
 
-1. Open Integrated Terminal
+1. Visit [MongoDB Cloud](https://www.mongodb.com/) and sign up.
+2. Create a new project.
+3. Go to the **Database** section and build a database:
+   - Select **M0 (free tier)**.
+   - Choose your region and create the database.
+4. Set up a username and password (do not use `@` in the password).
+5. Whitelist IP: Use `0.0.0.0/0` for access.
+6. Click **Connect** and select the **Compass** option.
+7. Copy the connection string and update the `db.js` file:
+   ```javascript
+   const dbConnection = "<your_connection_string>";
+   ```
+   Replace `<password>` with the password you created.
 
-\- Right Click on Sidebar > Select “Open In Integrated Terminal”
+#### Set Up Stripe
+1. Open the `.env` file in the backend folder.
+2. Add your Stripe secret key:
+   ```plaintext
+   STRIPE_SECRET_KEY=your-stripe-secret-key
+   ```
 
-1. Type “**npm install**” and press Enter and Wait for Installation to be completed (requires Internet)
+#### Run the Backend
+Use the following command to start the backend server:
+```bash
+npm run server
+```
 
-1. Setup The MongoDB
+### Frontend and Admin Panel Setup
 
-1. Open this link - [LINK](https://www.mongodb.com/cloud/atlas/register)
+#### Open Project Folder
+1. Open the project folder in **VS Code**.
 
-![](Aspose.Words.88715200-8181-4ef1-8932-dc17d3d29e38.001.png)
+#### Open Integrated Terminal
+1. Right-click on the sidebar and select **Open in Integrated Terminal**.
 
+#### Install Dependencies
+Run the following command:
+```bash
+npm install
+```
 
-1. After that Sign Up on the website.
+#### Run the Frontend and Admin Panel
+Use the following command to start the development server:
+```bash
+npm run dev
+```
 
-![](Aspose.Words.88715200-8181-4ef1-8932-dc17d3d29e38.002.png)
+### View the Project
+The project will open in your default web browser.
 
+---
 
+## Notes
 
-1. Click on New Project Option
+- Ensure you have a stable internet connection during setup.
+- Follow all steps in order to avoid configuration issues.
+- For troubleshooting, refer to the official documentation of **Node.js**, **MongoDB**, and **Stripe**.
 
-![](Aspose.Words.88715200-8181-4ef1-8932-dc17d3d29e38.003.jpeg)
+---
 
-1. After Creating Project go to Database Section & Build a database
 
-![](Aspose.Words.88715200-8181-4ef1-8932-dc17d3d29e38.004.jpeg)
 
-1. Select M0 & Your Region & Create Database
-
-![](Aspose.Words.88715200-8181-4ef1-8932-dc17d3d29e38.005.jpeg)
-
-
-1. Setup Username & Password & Create User
-
-![](Aspose.Words.88715200-8181-4ef1-8932-dc17d3d29e38.006.jpeg)
-
-**Note:** Do not use ‘@’ symbol in the password
-
-1. Now Click on Finish & Close
-
-![](Aspose.Words.88715200-8181-4ef1-8932-dc17d3d29e38.007.png)
-
-
-
-1. Whitelist IP **0.0.0.0** & Click on Add Entry
-
-![](Aspose.Words.88715200-8181-4ef1-8932-dc17d3d29e38.008.jpeg)
-
-
-1. Now Click on Connect
-
-![](Aspose.Words.88715200-8181-4ef1-8932-dc17d3d29e38.009.png)
-
-1. Now Select Compass Option
-
-![](Aspose.Words.88715200-8181-4ef1-8932-dc17d3d29e38.010.png)
-
-1. And Copy the Connection String
-
-![](Aspose.Words.88715200-8181-4ef1-8932-dc17d3d29e38.011.jpeg)
-
-1. And Paste It in db.js replace password with password you set previously in 4.F & save changes
-
-
-![](Aspose.Words.88715200-8181-4ef1-8932-dc17d3d29e38.012.jpeg)
-
-
-1. # **Now We have to Set Up stripe**
-
-- Open .env file in backend folder paste your stripe secret key in STRIPE\_SECRET\_KEY variable
-
-![](Aspose.Words.88715200-8181-4ef1-8932-dc17d3d29e38.013.jpeg)
-
-
-
-1. To Run Backend use **npm run server** in Integrated Terminal
-
-![](Aspose.Words.88715200-8181-4ef1-8932-dc17d3d29e38.014.png)
-
-- # **Steps To Run Frontend & Admin Panel Of The Project**
-
-1. Open	Project Folder In VS Code
-1. Open Integrated Terminal in project directory
-
-    0. Right Click on Sidebar > Select “Open In Integrated Terminal”
-
-![](Aspose.Words.88715200-8181-4ef1-8932-dc17d3d29e38.015.jpeg)
-
-1. ![](Aspose.Words.88715200-8181-4ef1-8932-dc17d3d29e38.016.png)Type “npm install” and press Enter and Wait for Installation to be completed (requires Internet)
-
-
-1. After Installation You will See ‘node\_modules’ Folder in the Sidebar
-
-1. After that type “npm run dev” in terminal
-
-![](Aspose.Words.88715200-8181-4ef1-8932-dc17d3d29e38.017.png)
-
-1. Now Your Project Will Start In Your Default Web Browser
-
-
-
+### Completion
+The project was completed with all components implemented, tested, and finalized.
