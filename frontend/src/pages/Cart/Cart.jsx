@@ -64,7 +64,7 @@ const Cart = () => {
       return; // Prevent navigation if fields are not filled
     }
 
-    const quantity = Object.values(cartItems).reduce((sum, qty) => sum + qty, 0) - 2;
+    const quantity = Object.values(cartItems).reduce((sum, qty) => sum + qty, 0);
 
 
     navigate('/order', {
